@@ -2,35 +2,36 @@ let age = +prompt('What year of birth? 1990 or other');
 let city = prompt('Where are you from?');
 let sport = prompt('What sport do you do? Football, basketball or box?');
 
-if (isNaN(age) === NaN || age < 0 || age !== 0 || age !== ""){
-    age = `You age ${2023 - age} years old`;
-
+if (!age){
+    age = "Too bad you didn't want to enter yours year of birth"
+}else if(age < 2023 && age !== ""){
+    age =`You years old ${2023 - age}`
 }else{
-    age = "Too bad you didn't want to enter yours age";
+    age = `Incorrect years of birth!`
 }
 
-if(typeof city === "string" || city !== null && city !== ""){
+if(!city){
+    city = `Too bad you didn't want to enter yours city`
+}else if (city !== ""){
     switch(city.toLowerCase()){
-        case "":
-            break
         case "kiev" :
-            city = (`You live in capital Ukraine Kiev`)
+            city = `You live in capital Ukraine Kiev`
             break
         case "washington" :
-            city = (`You live in capital USA Washington`)
+            city = `You live in capital USA Washington`
             break
         case "london" :
-            city = (`You live in capital great britan London`)
+            city = `You live in capital great britan London`
             break
         default:
-            city = (`You live in city ${city}`)
+            city = `You live in city ${city}`
             break
     }
-}else{
-    city = `Too bad you didn't want to enter yours city`;
 }
 
-if(sport !== null && sport !== ""){
+if(!sport){
+    sport = "Too bad you didn't want to enter yours sport";
+}else if(sport !== ""){
     switch(sport.toLowerCase()){
         case 'football':
             sport = 'Сool! Do you want to be like Lionel Messi';
@@ -42,11 +43,9 @@ if(sport !== null && sport !== ""){
             sport = 'Сool! Do you want to be like Vladimir Klichko';
             break
         default:
-            sport = "Too bad you didn't want to enter yours sport"
+            sport = `Cool! Your sport ${sport}`
             break
     };
-}else{
-    sport = "Too bad you didn't want to enter yours sport";
 }
 
 alert(`${age}
