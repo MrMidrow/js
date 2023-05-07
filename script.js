@@ -2,10 +2,11 @@ let age = +prompt('What year of birth? 1990 or other');
 let city = prompt('Where are you from?');
 let sport = prompt('What sport do you do? Football, basketball or box?');
 
-if (age !== NaN || age < 0 || age === 0 || age === ""){
-    age = "Too bad you didn't want to enter yours age";
-}else{
+if (isNaN(age) === NaN || age < 0 || age !== 0 || age !== ""){
     age = `You age ${2023 - age} years old`;
+
+}else{
+    age = "Too bad you didn't want to enter yours age";
 }
 
 if(typeof city === "string" || city !== null && city !== ""){
