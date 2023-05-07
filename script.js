@@ -1,52 +1,53 @@
-const age = +prompt('How old are you? Please, write in number');
-const city = prompt('where are you from?');
+let age = +prompt('What year of birth? 1990 or other');
+let city = prompt('Where are you from?');
+let sport = prompt('What sport do you do? Football, basketball or box?');
 
-if (age === NaN || age < 0 || age === 0){
-    alert("Too bad you didn't want to enter yours age")
-} 
-if(city !== null){
-    switch(city){
-        case "Kiev" && "kiev" :
-            alert(`Your age ${age}
-You live in capital Ukraine ${city}`)
+if (age === NaN || age < 0 || age === 0 || age === ""){
+    age = "Too bad you didn't want to enter yours age";
+}else{
+    age = `You age ${2023 - age} years old`;
+}
+
+if(city !== null && city !== ""){
+    switch(city.toLowerCase()){
+        case "":
             break
-        case "Washington" && "washington" :
-            alert(`Your age ${age}
-You live in capital USA ${city}`)
+        case "kiev" :
+            city = (`You live in capital Ukraine Kiev`)
             break
-        case "London" && "london" :
-            alert(`Your age ${age}
-You live in capital great britan ${city}`)
+        case "washington" :
+            city = (`You live in capital USA Washington`)
+            break
+        case "london" :
+            city = (`You live in capital great britan London`)
             break
         default:
-            alert(`Your age ${age}
-You live in city ${city}`)
+            city = (`You live in city ${city}`)
             break
     }
 }else{
-    alert("Too bad you didn't want to enter yours city");
+    city = `Too bad you didn't want to enter yours city`;
 }
 
-const sport = prompt('What sport do you do? Football, basketball or box?')
-if(sport !== null){
-    switch(sport){
-        case 'Football' || 'football':
-            alert('Сool! Do you want to be like Lionel Messi')
+if(sport !== null && sport !== ""){
+    switch(sport.toLowerCase()){
+        case 'football':
+            sport = 'Сool! Do you want to be like Lionel Messi';
             break
-        case 'basketball' || 'Basketball':
-            alert('Сool! Do you want to be like Michael Jordan')
+        case 'basketball':
+            sport = 'Сool! Do you want to be like Michael Jordan';
             break
-        case 'box' || 'Box':
-            alert('Сool! Do you want to be like Vladimir Klichko')
+        case 'box':
+            sport = 'Сool! Do you want to be like Vladimir Klichko';
             break
         default:
-            ("Too bad you didn't want to enter yours sport")
+            sport = "Too bad you didn't want to enter yours sport"
             break
     };
+}else{
+    sport = "Too bad you didn't want to enter yours sport";
 }
 
-
-
-// age === NaN ? alert("Too bad you didn't want to enter yours age"): alert();
-// city === null ? alert("Too bad you didn't want to enter yours city"):alert();
-// sport === null ? alert("Too bad you didn't want to enter yours sport"): alert();
+alert(`${age}
+${city}
+${sport}`)
