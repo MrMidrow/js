@@ -1,27 +1,48 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
-}
+// Вивести числа від 20 до 30 через пропуск, використовуючи крок 0,5 (20 20,5 21 21,5….).
+for(let i = 20; i <= 30; i+=0.5){
+    console.log(i)
+};
 
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+let i = 20;
+while(i <= 30){
+    console.log(i)
+    i +=0.5
+}
+// Один долар коштує 27 гривень. Вивести дані з розрахунком вартості 10, 20, 30... 100 доларів.
+const dollar = 27;
+let table = {};
+for(let i = 10; i <= 100; i+=10){
+        if(!table[i]) table[i] = [];
+        table[i].push(i*dollar)
+};
+console.log(table);
+
+
+// Дане ціле число. Вивести всі цілі числа від 1 до 100, квадрат яких не перевищує числа N.
+const n = 10;
+let string = "";
+for(let x = 1; x <= 100; x++){
+    if(x**2 > n)break;
+    string += `${x} `
+}
+console.log(string)
+// Дане ціле число. З'ясувати, чи є воно простим (простим називається число, більше 1,
+//  які не мають інших дільників крім 1 і себе).
+const n = 100;
+let str = "";
+loopsFor:
+for(i = 2; i <= n; i++){
+    for(s = 2; s < i; s++){
+        if(i%s == 0)continue loopsFor;
+    }
+    str += `${i} `
+}
+console.log(str)
+
+// Дане деяке число. Визначити, чи можна одержати це число шляхом зведення числа 3 у деякий ступінь. (Наприклад, числа 9, 81 можна отримати, а 13 - не можна).
+
+const n = 12;
+for(let j = 1;;j++){
+    if(3**j == n) {break};
+    console.log(j)
+}
