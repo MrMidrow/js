@@ -34,7 +34,7 @@ console.log(string)
 // task 4
 
 const s = 13;
-for( let i = 2; i <= n - 1; i++){
+for( let i = 2; i <= s - 1; i++){
     if((s % i == 0)){
         alert("composite number")
         break
