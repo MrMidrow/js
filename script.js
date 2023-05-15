@@ -1,27 +1,21 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
+const number = +prompt('enter quantity obj');
+const massage = [];
+//step 1
+if(!number){
+	alert('Please enter Number not a string')
 }else{
-    alert(`Please try again`);
+	for(let i = 1; i <= number; i++){
+   massage.push(prompt('send a massage: '))
+  }
 }
-
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+alert(massage)
+//step 2
+massage.sort();
+alert(massage)
+//step 3
+if(massage.length <= 2){
+    alert('More than 2 elements are required to remove elements from an array')
+}else{
+    massage.splice(1, 3)
+    alert(sortMassage)
+}
