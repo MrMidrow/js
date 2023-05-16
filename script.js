@@ -1,9 +1,9 @@
 const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-function generateKey(numbers, key){
+function generateKey(numbers, keys){
 	let password = '';
     for(let i = 0; i < numbers; i++){
-       password +=	key.charAt(Math.floor(Math.random()*key.length))
+       password +=	keys.charAt(Math.floor(Math.random()*keys.length))
     }
     return password
 }
