@@ -59,7 +59,7 @@ let users = [
 let usersPhone = []
 let totalScore = 0;
 
- users.forEach(function getPhoneNumberOfBalance(item){
+ users.forEach((item) => {
     if(item.balance.replace('$','').replace(',','') > 2000){
      usersPhone += `${item.phone} ;`
  }
