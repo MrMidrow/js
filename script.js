@@ -66,3 +66,7 @@ let totalScore = 0;
  		totalScore += +item.balance.replace('$','').replace(',','')
 })
 console.log(totalScore.toFixed(2), usersPhone)
+
+
+let b = users.reduce((element, item)=> element + item.balance , 0)
+console.log(b)
