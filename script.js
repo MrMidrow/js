@@ -1,7 +1,7 @@
 function getSum(){
     let result = 0;
    return function(number){
-      result = result + number;
+      result += number;
    return result;
  };
 }
