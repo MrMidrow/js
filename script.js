@@ -1,27 +1,22 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
-}
+const textArea = document.getElementById('text');
 
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+textArea.onmouseover = textArea.onmouseout = mouse ;
+
+function mouse(event){
+	if(event.type == 'mouseover'){
+      const div = document.createElement("div");
+      div.setAttribute('id','box')
+      div.style.cssText = `
+      margin-left: 20px;
+      width: 50px;
+      height: 50px;
+      border: 2px solid red;
+      background: black;`  
+      //or div.classList.add('box')
+			event.target.after(div)
+      console.log(event.target.type)
+  }
+  if(event.type == 'mouseout'){
+  		document.getElementById('box').remove();
+  }
+}
