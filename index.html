@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>$$$</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>title</title>
 </head>
 <body>
-    <h1>$FirstName</h1>
+    <div class="container">
+        <h1>burger buy</h1>
+        <img src="https://img.freepik.com/free-photo/double-hamburger-isolated-on-white-background-fresh-burger-fast-food-with-beef-and-cream-cheese_90220-1192.jpg?w=2000" alt="burger" width="500px">
+    </div>
+    <div class="container get_adress">
+        <button id="buyItem">Buy</button>
+
+        <form id="form_buy" name='buyForm' novalidate>
+            <label for="firstName">First name
+                <input type="text" name="first_name" id="firstName" required>
+            </label>
+            <label for="secondName">Second name
+                <input type="text" name="second_name" id="secondName" required>
+            </label>
+            
+            <br>
+            <label for="city">City</label>
+            <select name="city" id="city" required>
+                <option value="">-</option>
+                <option value="odessa">Odessa</option>
+                <option value="kiev">Kiev</option>
+                <option value="lviv">Lviv</option>
+            </select>
+            <br>
+            <label for="mail">Addres new mail*</label>
+            <input type="text" name="mail" id="mail" required>
+            <br>
+            <p id="methodPaid">Method paid*</p>
+            <label>postpaid
+                <input type="radio" name="paid" value="postpaid" id="postPay" required><br>
+                 use a card
+                <input type="radio" name="paid" value="card" id="nawPay" required>
+            </label>
+            <br>
+            <section class="block_how_mach">
+                <label for="quantity" id="amountText">amount*</label>
+                <button type="button" id="subtract">-</button>
+                <input type="text" name="how_much" id="quantity" value='0' required>
+                <button type="button" id="added">+</button>
+            </section>
+            <br>
+            <label for="text_node">Please send a comment her:</label>
+            <textarea name="textNode" id="text_node" cols="30" rows="5"></textarea>
+            <br>
+            <button>send</button>
+            <div id="worning">
+            </div>
+        </form>
+    </div>
+
+    <style>
+
+    </style>
     <script src="script.js"></script>
 </body>
 </html>

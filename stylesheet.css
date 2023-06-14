@@ -1,0 +1,29 @@
+body{
+    display: flex;
+}
+#form_buy{
+display: flex;
+flex-direction: column;
+visibility: hidden;
+
+width: 300px;
+padding: 10px;
+margin: 10px 0 0 0;
+border: 2px solid;
+
+overflow: hidden;
+border-radius: 12px;
+}
+.get_adress{
+    margin: 80px 0 0 25px;
+}
+input{
+    margin: 3px;
+    padding: 2px;
+}
+#how_mach{
+    width: 30px;
+}
+textarea{
+    resize:none;
+}
