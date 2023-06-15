@@ -8,7 +8,24 @@
     <title>$$$</title>
 </head>
 <body>
-    <input id="text" type="text" placeholder="user">
+    <form id="form" novalidate>
+        <div class="item">
+          <input type="text" name="userName" id="userName" placeholder="User name" required>
+        </div>
+        <div class="item">
+          <input type="password" name="password" id="password" placeholder="Password"><span id='passSpan'></span>
+        </div>
+        <div class="item">
+            <input type="text" name = 'mail'id='email' placeholder='email'><span id='mailSpan'></span>
+        </div>
+        <div class="item">
+          <input type="text" name = 'phone' id ='phone' placeholder='phone'><span id='phoneSpan'></span>
+        </div>
+        <div class="item">
+            <input type="text" name = 'fullName' id='fullName' placeholder='fullName'><span id='nameSpan'></span>
+        </div>
+        <button type="submit" id='login'>Log In</button>
+      </form>
     <script src="script.js"></script>
 </body>
 </html>
