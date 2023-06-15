@@ -77,3 +77,9 @@ button{
         transform: rotate(360deg);
     }
 }
+
+.item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
