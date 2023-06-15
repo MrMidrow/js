@@ -11,6 +11,8 @@ const nameSpan = document.querySelector('#nameSpan')
 
 const textNodeValid = document.createTextNode('valid')
 const textNodeNoValid	= document.createTextNode('Novalid')
+document.querySelector('#login').setAttribute('disabled', '')
+
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault()
@@ -54,73 +56,63 @@ function sortForm(){
 	return formObject
 }
 
-
-// mail.addEventListener('input', (e)=>{
-//     e.preventDefault()
-//     let target = e.target.value
-//     let patternMail = /^\w{5,}\@\w+\.\w{2,3}$/;
-//     let isValidMail = patternMail.test(target)
-//     if(isValidMail){
-//         mailSpan.textContent = 'valid'
-//         return true
-//     }else{
-//         mailSpan.textContent = 'No valid'
-//         return false
-//     }
-// })
-  
-// phone.addEventListener('input', (e)=>{
-//     e.preventDefault()
-//     let target = e.target.value;
-//     let patternPhone = /^\+\d{1,3}\(+\d{2,}\)+\d{3,}\-\d{2,}\-\d{2,}$/;
-//     let isValidPhone = patternPhone.test(target);
-//         if(isValidPhone){
-//             phoneSpan.textContent = 'valid'
-//         }else{
-//             phoneSpan.textContent = 'No valid'
-//         }
-// })
-// password.addEventListener('input', (e)=>{
-//          e.preventDefault()
-//          let target = e.target.value
-//          let patternPassword = /^[A-Za-z]{1,}\d{1,}\w$/;
-//          let isValidPassword = patternPassword.test(target)
-//           if(isValidPassword){
-//               passSpan.textContent = 'valid'
-//           }else{
-//               passSpan.textContent = 'No valid'
-//           }
-// })
-  
-// fullName.addEventListener('input', (e)=>{
-//     e.preventDefault()
-//     let target = e.target.value
-//     let patternFullName = /^[A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,}/;
-//     let isValidName = patternMail.test(target)
-//     if(isValidName){
-//         nameSpan.textContent = 'valid'
-//     }else{
-//         nameSpan.textContent = 'No valid'
-//     }
-//   })
-
-let keys = form.addEventListener('input', (e)=>{
+let mailValid = function(e){
     e.preventDefault()
-    
     let target = e.target.value
     let patternMail = /^\w{5,}\@\w+\.\w{2,3}$/;
-    let patternPassword = /^[A-Za-z]{1,}\d{1,}\w$/;
-    let patternPhone = /^\+\d{1,3}\(+\d{2,}\)+\d{3,}\-\d{2,}\-\d{2,}$/;
-    let patternFullName = /^[A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,}$/;
-
     let isValidMail = patternMail.test(target)
-    let isValidFullName = patternPassword.test(target)
-    let isValidPassword = patternPhone.test(target)
-    let isValidPhone = patternFullName.test(target)
+    if(isValidMail){
+        mailSpan.textContent = 'valid'
+        return true
+    }else{
+        mailSpan.textContent = 'No valid'
+        return false
+    }
+}
+  
+let phoneValid = function(e){
+    e.preventDefault()
+    let target = e.target.value;
+    let patternPhone = /^\+\d{1,3}\(+\d{2,}\)+\d{3,}\-\d{2,}\-\d{2,}$/;
+    let isValidPhone = patternPhone.test(target);
+        if(isValidPhone){
+            phoneSpan.textContent = 'valid'
+        }else{
+            phoneSpan.textContent = 'No valid'
+        }
+}
 
-    isValidPassword ? passSpan.textContent = 'valid' : passSpan.textContent = 'NOvalid'
-    isValidMail ? mailSpan.textContent = 'valid' : mailSpan.textContent = 'NOvalid'
-    isValidPhone ? phoneSpan.textContent = 'valid' : phoneSpan.textContent = 'NOvalid'
-    isValidFullName ? nameSpan.textContent = 'valid' : nameSpan.textContent = 'NOvalid'
+let passwordValid = function (e){
+    e.preventDefault()
+    let target = e.target.value
+    let patternPassword = /^[A-Za-z]{1,}\d{1,}\w$/;
+    let isValidPassword = patternPassword.test(target)
+     if(isValidPassword){
+         passSpan.textContent = 'valid'
+     }else{
+         passSpan.textContent = 'No valid'
+     }
+}
+  
+let isFullName = function(e){
+    let target = e.target.value
+    let patternFullName = /^[A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,}/;
+    let isValidName = patternFullName.test(target)
+    if(isValidName && target != ""){
+        nameSpan.textContent = 'valid'
+        return true
+    }else{
+        nameSpan.textContent = 'No valid'
+    }
+  }
+
+form.addEventListener('input', (e)=>{
+    e.preventDefault()
+    let target = e.target.name
+    let nameOk, passwordOk, phoneOk, mailOk;
+    if(target == 'fullName'){nameOk = isFullName(e)}
+    if(target == 'password'){passwordOk = passwordValid(e)}
+    if(target == 'phone'){phoneOk = phoneValid(e)}
+    if(target == 'mail') {mailOk = mailValid(e)}
 })
-console.log(keys)
+
