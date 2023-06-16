@@ -1,16 +1,22 @@
 const form = document.querySelector('#form')
 let count = false;
-let user = {}
+let user = []
+
+function makeUnic (arr) {
+    const uniqSet = new Set(arr);
+    return [...uniqSet];
+}
+
 form.addEventListener('submit', (event) => {
     event.preventDefault()
     sortForm()
-    console.log(sortForm())
-    if(!count){
-        console.log('Enter all yard')
-    }else{
-        console.log('Cool')
+    let ligin = makeUnic(user)
+    if(ligin.length === 4){
+        createPreload(true)
+        setTimeout(()=>{
+            window.location.assign('/profile.html')
+        },2000)
     }
-
 })
 
 function createPreload(index) {
@@ -39,11 +45,11 @@ function sortForm() {
 
 let validatorMap = {
     userName: {
-        validator: /^[A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]+$/,
+        validator: /^[A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,} [A-Z]{1,}[a-z]{1,}$/,
         message: "имя пользователя может содержать только латинские символы",
     },
     password: {
-        validator: /^[A-Za-z]{1,}\d{1,}\w+$/,
+        validator: /^[A-Za-z]{1,}\d{1,}\w{1,}$/,
         message: "Пароль должен быть минимум 8 символов и содержать буквы верхнего нижнего рестра, а так же как минимум один спецсимвол",
     },
     mail: {
@@ -64,13 +70,15 @@ form.addEventListener('input', (e) => {
     
     if(value.trim() === "") {
      errorSpan.textContent = "Поле не может быть пустым";
+     
     } else {
      let isValidInput = validatorMap[inputName] && validatorMap[inputName].validator.test(value);
         if(!isValidInput) {
             errorSpan.textContent = validatorMap[inputName].message;
         }else{
-            user[value[0]] = value[1]
             errorSpan.textContent = 'Супер !'
+            user.push(inputName)
         }
     }
 })
+
