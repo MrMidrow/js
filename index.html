@@ -9,10 +9,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>burger buy</h1>
+        <h3>Burger</h3>
+        <p class="descriptionItem">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error recusandae soluta <br> hic fugiat officiis accusamus, exercitationem assumenda veritatis aspernatur <br> corporis cupiditate iste quibusdam eos dolorem laborum vitae beatae ullam ducimus <br></p>
         <img src="https://img.freepik.com/free-photo/double-hamburger-isolated-on-white-background-fresh-burger-fast-food-with-beef-and-cream-cheese_90220-1192.jpg?w=2000" alt="burger" width="500px">
     </div>
-    <div class="container get_adress">
+    <div class="container get_address">
         <button id="buyItem">Buy</button>
 
         <form id="form_buy" name='buyForm' novalidate>
@@ -42,19 +43,14 @@
                 <input type="radio" name="paid" value="card" id="nawPay" required>
             </label>
             <br>
-            <section class="block_how_mach">
-                <label for="quantity" id="amountText">amount*</label>
-                <button type="button" id="subtract">-</button>
-                <input type="text" name="how_much" id="quantity" value='0' required>
-                <button type="button" id="added">+</button>
-            </section>
+            <label for="quantity" id="amountText">amount*</label>
+            <input type="text" name="how_much" id="quantity" placeholder='0' required>
             <br>
             <label for="text_node">Please send a comment her:</label>
             <textarea name="textNode" id="text_node" cols="30" rows="5"></textarea>
             <br>
-            <button>send</button>
-            <div id="worning">
-            </div>
+            <button id="send">send</button>
+            <span id="worning"></span>
         </form>
     </div>
 
