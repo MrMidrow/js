@@ -19,7 +19,7 @@ class Apartment{
   }
 }
 
-class Build {
+class BuildHouse {
 	build = []
   
   constructor (maxAprt) {
@@ -40,20 +40,19 @@ let john = new Human('John', 'male');
 let lilu = new Human('lilu', 'girl');
 
 
-let apartment42 = new Apartment();
-let apartment22 = new Apartment();
-let apartment23 = new Apartment();
+let apartment1 = new Apartment();
+let apartment2 = new Apartment();
+let apartment3 = new Apartment();
 
-apartment42.addHumanInApart(alex);
-apartment22.addHumanInApart(john);
-apartment23.addHumanInApart(lilu)
-
-
-let newHouse = new Build(2);
-newHouse.addApartmentInBuild(apartment42, apartment22)
+apartment1.addHumanInApart(alex);
+apartment2.addHumanInApart(john);
+apartment3.addHumanInApart(lilu)
 
 
-console.log(apartment42.apartment);
-console.log(apartment22.apartment);
+let newHouse = new BuildHouse(2);
+newHouse.addApartmentInBuild(apartment1, apartment2)
+
+
+console.log(apartment1.apartment);
+console.log(apartment2.apartment);
 console.log(newHouse.build);
-
