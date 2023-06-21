@@ -1,27 +1,59 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
+'use strict'
+
+class Human{
+	constructor(name, gender){
+  	this.name = name;
+    this.gender = gender
+  }
 }
 
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+class Apartment{
+  apartment = []
+
+  addHumanInApart (hmn) {
+    if(hmn instanceof Human == false) {
+      throw Error('Error')
+      return;
+    }
+    this.apartment.push(hmn);
+  }
+}
+
+class Build {
+	build = []
+  
+  constructor (maxAprt) {
+   this.maxAprt = maxAprt;
+  }
+  
+  addApartmentInBuild (...theArgs) {
+  	if(this.maxAprt >= theArgs.length){
+		this.build.push(...theArgs)
+    }else{
+    	throw Error('You have a max apartment in this build')
+    }
+  }
+}
+
+let alex = new Human('Alex', 'male');
+let john = new Human('John', 'male');
+let lilu = new Human('lilu', 'girl');
+
+
+let apartment42 = new Apartment();
+let apartment22 = new Apartment();
+let apartment23 = new Apartment();
+
+apartment42.addHumanInApart(alex);
+apartment22.addHumanInApart(john);
+apartment23.addHumanInApart(lilu)
+
+
+let newHouse = new Build(2);
+newHouse.addApartmentInBuild(apartment42, apartment22)
+
+
+console.log(apartment42.apartment);
+console.log(apartment22.apartment);
+console.log(newHouse.build);
+
