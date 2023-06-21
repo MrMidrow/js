@@ -37,7 +37,7 @@ class BuildHouse {
 
 let alex = new Human('Alex', 'male');
 let john = new Human('John', 'male');
-let lilu = new Human('lilu', 'girl');
+let lilu = new Human('lilu', 'female');
 
 
 let apartment1 = new Apartment();
