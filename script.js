@@ -6,12 +6,6 @@ const quantity = document.querySelector('#quantity')
 const worningText = document.querySelector('#worning')
 let user = []
 
-worningText.style.cssText = `padding: 15px;
-margin-top: 10px;
-background: red;
-color: white;
-border: 0.5px solid grey`;
-
 const makeUnic = (arr) => [...new Set(arr)];
 
 btnBuyItem.addEventListener('click', ()=>{
@@ -28,6 +22,11 @@ formBuy.addEventListener('submit', (e) => {
         addResaultOnPage();
     }else{
         worningText.textContent = 'please enter all strings';
+        worningText.style.cssText = `padding: 15px;
+        margin-top: 10px;
+        background: red;
+        color: white;
+        border: 0.5px solid grey`;
     };
 });
 
