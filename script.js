@@ -4,9 +4,6 @@ const formBuy = document.querySelector('#form_buy')
 
 const quantity = document.querySelector('#quantity')
 const worningText = document.querySelector('#worning')
-let user = []
-
-// const makeUnic = (arr) => [...new Set(arr)];
 
 btnBuyItem.addEventListener('click', ()=>{
     formBuy.style.visibility = formBuy.style.visibility !== 'visible' ? 'visible' : 'hidden'
@@ -34,30 +31,8 @@ formBuy.addEventListener('submit', (e) => {
         color: white;
         border: 0.5px solid grey`;
     }
-    // let userValue = makeUnic(user);
-    // console.log(userValue)
-    // console.log(user)
-    // if(userValue.length >= 6){
-    //     formBuy.style.display = 'none';
-    //     addResaultOnPage();
-    // }else{
-    //     worningText.textContent = 'please enter all strings';
-    //     worningText.style.cssText = `padding: 15px;
-    //     margin-top: 10px;
-    //     background: red;
-    //     color: white;
-    //     border: 0.5px solid grey`;
-    // };
 });
 
-// formBuy.addEventListener('change', (e) => {
-//     let value = e.target.value;
-//     let inputName = e.target.name;
-
-//     if(value.trim() !== ''){
-//         user.push(inputName);
-//     }
-// });
 
 function addResaultOnPage(){
     const div = document.createElement('div')
