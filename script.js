@@ -40,7 +40,7 @@ formBuy.addEventListener('input', (e) => {
 });
 
 function addResaultOnPage(){
-    const div = document.querySelector('div')
+    const div = document.createElement('div')
     div.style.cssText = `
     display: flex;
     margin-top: 10px;
