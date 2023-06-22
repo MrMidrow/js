@@ -22,12 +22,12 @@ formBuy.addEventListener('submit', (e) => {
     }
 
     let validValue = objForm.first_name === '' || objForm.second_name === '' || objForm.city === '' || objForm.mail === '' || objForm.paid === '' || objForm.how_much === '';
-    
+
     if(!validValue){
         formBuy.style.display = 'none';
         addResaultOnPage();
     }else{
-        worningText.textContent = 'please enter all strings';
+        worningText.textContent = 'please enter all fields';
         worningText.style.cssText = `padding: 15px;
         margin-top: 10px;
         background: red;
