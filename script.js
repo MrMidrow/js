@@ -1,4 +1,4 @@
-'use stricе';
+'use strict';
 const btnBuyItem = document.querySelector('#buyItem')
 const formBuy = document.querySelector('#form_buy')
 
