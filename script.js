@@ -1,4 +1,4 @@
-'use stric';
+'use stricе';
 const btnBuyItem = document.querySelector('#buyItem')
 const formBuy = document.querySelector('#form_buy')
 
@@ -9,14 +9,14 @@ let user = []
 const makeUnic = (arr) => [...new Set(arr)];
 
 btnBuyItem.addEventListener('click', ()=>{
-    formBuy.style.visibility !== 'visible' ? formBuy.style.visibility = 'visible' : formBuy.style.visibility = 'hidden';
+    formBuy.style.visibility = formBuy.style.visibility !== 'visible' ? 'visible' : 'hidden'
 });
 
 formBuy.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let userValue = makeUnic(user);
-    
+    console.log(user)
     if(userValue.length >= 6){
         formBuy.style.display = 'none';
         addResaultOnPage();
