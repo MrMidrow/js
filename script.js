@@ -14,10 +14,14 @@ btnBuyItem.addEventListener('click', ()=>{
 
 formBuy.addEventListener('submit', (e) => {
     e.preventDefault();
+    let formValue = new FormData(formBuy);
+    let objForm = {}
 
-    let userValue = makeUnic(user);
-    console.log(user)
-    if(userValue.length >= 6){
+    for(let value of formValue){
+        objForm[value[0]] = value[1]
+    }
+    let validValue = objForm.first_name === '' || objForm.second_name === '' || objForm.city === '' || objForm.mail === '' || objForm.paid === '' || objForm.how_much === '';
+    if(!validValue){
         formBuy.style.display = 'none';
         addResaultOnPage();
     }else{
@@ -27,17 +31,31 @@ formBuy.addEventListener('submit', (e) => {
         background: red;
         color: white;
         border: 0.5px solid grey`;
-    };
-});
-
-formBuy.addEventListener('input', (e) => {
-    let value = e.target.value;
-    let inputName = e.target.name;
-
-    if(value.trim() !== ''){
-        user.push(inputName);
     }
+    // let userValue = makeUnic(user);
+    // console.log(userValue)
+    // console.log(user)
+    // if(userValue.length >= 6){
+    //     formBuy.style.display = 'none';
+    //     addResaultOnPage();
+    // }else{
+    //     worningText.textContent = 'please enter all strings';
+    //     worningText.style.cssText = `padding: 15px;
+    //     margin-top: 10px;
+    //     background: red;
+    //     color: white;
+    //     border: 0.5px solid grey`;
+    // };
 });
+
+// formBuy.addEventListener('change', (e) => {
+//     let value = e.target.value;
+//     let inputName = e.target.name;
+
+//     if(value.trim() !== ''){
+//         user.push(inputName);
+//     }
+// });
 
 function addResaultOnPage(){
     const div = document.createElement('div')
