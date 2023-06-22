@@ -6,7 +6,7 @@ const quantity = document.querySelector('#quantity')
 const worningText = document.querySelector('#worning')
 let user = []
 
-const makeUnic = (arr) => [...new Set(arr)];
+// const makeUnic = (arr) => [...new Set(arr)];
 
 btnBuyItem.addEventListener('click', ()=>{
     formBuy.style.visibility = formBuy.style.visibility !== 'visible' ? 'visible' : 'hidden'
@@ -20,7 +20,9 @@ formBuy.addEventListener('submit', (e) => {
     for(let value of formValue){
         objForm[value[0]] = value[1]
     }
+
     let validValue = objForm.first_name === '' || objForm.second_name === '' || objForm.city === '' || objForm.mail === '' || objForm.paid === '' || objForm.how_much === '';
+    
     if(!validValue){
         formBuy.style.display = 'none';
         addResaultOnPage();
