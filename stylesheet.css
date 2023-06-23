@@ -27,3 +27,20 @@ input{
 textarea{
     resize:none;
 }
+
+.worningStyle{
+    padding: 15px;
+    margin-top: 10px;
+    background: red;
+    color: white;
+    border: 0.5px solid grey;
+}
+
+.resultBuy{
+    display: flex;
+    margin-top: 10px;
+    width: 320px;
+    height: auto;
+    border: 2px solid black;
+    background: grey;
+}

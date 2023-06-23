@@ -11,40 +11,37 @@ btnBuyItem.addEventListener('click', ()=>{
 
 formBuy.addEventListener('submit', (e) => {
     e.preventDefault();
-    let formValue = new FormData(formBuy);
+
+    let formValues = new FormData(formBuy);
     let objForm = {}
 
-    for(let value of formValue){
-        objForm[value[0]] = value[1]
-    }
+    formValues.forEach((value, key) => {
+    	if(key !== "textNode") {
+      	objForm[key] = value;
+      }
+    });
 
-    let validValue = objForm.first_name === '' || objForm.second_name === '' || objForm.city === '' || objForm.mail === '' || objForm.paid === '' || objForm.how_much === '';
+		let isFormFieldsEmpty = Object.keys(objForm).some(item => !objForm[item]);
 
-    if(!validValue){
+    if(!isFormFieldsEmpty){
         formBuy.style.display = 'none';
         addResaultOnPage();
     }else{
         worningText.textContent = 'please enter all fields';
-        worningText.style.cssText = `padding: 15px;
-        margin-top: 10px;
-        background: red;
-        color: white;
-        border: 0.5px solid grey`;
+        
+        worningText.classList.add('worningStyle');
     }
 });
 
 
 function addResaultOnPage(){
-    const div = document.createElement('div')
-    div.style.cssText = `
-    display: flex;
-    margin-top: 10px;
-    width: 320px;
-    heigth: 150px;
-    border: 2px solid black;
-    background: grey`;
-    let p = document.createElement('p');
-    p.textContent = `You get a ${document.querySelector('h3').textContent}, 
+
+    const resultWrapper = document.createElement('div')
+    
+    resultWrapper.classList.add('resultBuy');
+    
+    let resultSummaryText = document.createElement('p');
+    resultSummaryText.textContent = `You get a ${document.querySelector('h3').textContent}, 
     ${document.querySelector('.descriptionItem').textContent}, 
     Your full name ${formBuy.first_name.value} ${formBuy.second_name.value},  
     City: ${formBuy.city.value},  
@@ -52,6 +49,6 @@ function addResaultOnPage(){
     Method paid: ${formBuy.paid.value},  
     Amount: ${formBuy.how_much.value},  
     Comment: ${formBuy.textNode.value}`;
-    div.appendChild(p);
-    document.querySelector('.get_address').append(div);
+    resultWrapper.appendChild(resultSummaryText);
+    document.querySelector('.get_address').append(resultWrapper);
 };
