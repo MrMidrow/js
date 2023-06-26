@@ -1,0 +1,64 @@
+body{
+    text-align: center;
+}
+
+#clickMe{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid rgb(168, 159, 159);
+    cursor: pointer;
+}
+
+.popupForm {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    height: 300px;
+    border: 0.5px solid rgb(168, 159, 159);
+    border-radius: 15px;
+}
+
+#login input{
+    display: block;
+    width: 250px;
+    padding: 15px;
+    margin: 12.5px 0;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+#login span{
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    right: 11px;
+    cursor: pointer;
+}
+#login button{
+    width: 100px;
+    height: 30px;
+    font-size: 17px;
+    border-radius: 7px;
+    border: 1px solid rgb(168, 159, 159);
+    cursor: pointer;
+    color: rgb(103, 108, 112);
+}
+.active{
+    position: absolute;
+    display: block;
+    right: 0%;
+    top: 25%;
+    left: 32%;
+}
