@@ -1,27 +1,16 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
-}
+const image = document.querySelector("img");
 
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+(async function fetchResponse(){
+    try{
+        const url = await fetch('http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19');
+        const data = await url.json();
+        const paragraph = document.createElement('p')
+        data.weather[0].icon = 'http://openweathermap.org/img/w/10d.png'
+        image.src = data.weather[0].icon
+
+        paragraph.textContent = `Misto: ${data.name}, Temp; ${data.main.temp}, Tisk: ${data.main.pressure} description: ${data.weather[0].description}, humidity: ${data.main.humidity}, speed: ${data.wind.speed}, deg: ${data.wind.deg}`
+        document.body.append(paragraph)
+    } catch (error){
+        console.log(error)
+    }
+})()
