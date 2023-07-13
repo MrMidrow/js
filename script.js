@@ -1,27 +1,40 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
+'use strict'
+const obj = {x: 12, y: 3, sign: '/'}
+class SuperMath{
+    check(obj) {
+        const question = prompt(`Вы хочете зробити дію ${obj.sign} з ${obj.x} i ${obj.y}.\nPress Enter if you ready, or press Cansel if not`);
+        if(question == null) return this.input();
+        return this.calc(obj)
+    }
+    input() {
+        let newObj = {
+            x: +prompt('Please, enter -> X'),
+            y: +prompt('Please, enter -> Y'),
+            sign: prompt('Please, enter sign -> " - , + , / , % ".')
+        }
+        return this.calc(newObj)
+    }
+    calc(obj){
+        switch(obj.sign){
+            case '-':
+                console.log(obj.x - obj.y);
+                break;
+            case '+':
+                console.log(obj.x + obj.y);
+                break;
+            case '/':
+                console.log(obj.x / obj.y);
+                break;
+            case '*':
+                console.log(obj.x * obj.y);
+                break;
+            case '%':
+                console.log(obj.x % obj.y);
+                break;
+            default:
+                console.log(`invalid character : ${obj.sign}`);
+        }
+    }
 }
-
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+const newObj = new SuperMath();
+newObj.check(obj)
