@@ -7,7 +7,27 @@
     <title>$$$</title>
 </head>
 <body>
-    <h1>$FirstName</h1>
+    <h1>Search post by id</h1>
+    <form id="searchPostId">
+        <label for="Post">
+            enter number
+            <input id="idPost" type="text" name="Post">
+        </label>
+        <button id="search"> search </button>
+    </form>
+    <div class="container">
+        <section class="wrapper__post">
+            <div class="post">
+                <h3 class="userName"></h3>
+                <p class="title"></p>
+                <p class="body"></p>
+                <button id="searchComment" style="visibility: hidden;">Comment</button>
+            </div>
+        </section>
+        <section id="comment" style="visibility: hidden;">
+            
+        </section>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
