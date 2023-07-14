@@ -12,7 +12,27 @@ class SuperMath{
             y: +prompt('Please, enter -> Y'),
             sign: prompt('Please, enter sign -> " - , + , / , % ".')
         }
-        return this.calc(newObj)
+        if(!newObj.x || !newObj.y || !newObj.sign) return console.log("Очень жаль что вы не захотели воспользоваться нашим калькулятором")
+        switch(newObj.sign){
+            case '-':
+                console.log('all good! Let`s go to the next step');
+                return this.calc(newObj);
+            case '+':
+                console.log('all good! Let`s go to the next step');
+                return this.calc(newObj);
+            case '/':
+                console.log('all good! Let`s go to the next step');
+                return this.calc(newObj);
+            case '*':
+                console.log('all good! Let`s go to the next step');
+                return this.calc(newObj);
+            case '%':
+                console.log('all good! Let`s go to the next step');
+                return this.calc(newObj);
+            default:
+                console.log(`invalid character : ${obj.sign}`);
+                return this.input()
+        }
     }
     calc(obj){
         switch(obj.sign){
@@ -37,4 +57,4 @@ class SuperMath{
     }
 }
 const newObj = new SuperMath();
-newObj.check(obj)
+newObj.check(obj) 
