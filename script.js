@@ -1,27 +1,27 @@
-//first home work calculator :D
-const operator = prompt('Enter operator to perform the calculation ( either +, -, * or / ): ');
-const firstnumber = +prompt('Please enter the first number: ');
-const secondnumber = +prompt('Please, enter the second number: ');
-let result;
-if (operator === '+'){
-    result = firstnumber + secondnumber;
-    alert(`${firstnumber} + ${secondnumber} = ${result}`);
-} else if (operator === '-'){
-    result = firstnumber - secondnumber;
-    alert(`${firstnumber} - ${secondnumber} = ${result}`);
-} else if (operator === "*"){
-    result = firstnumber * secondnumber;
-    alert(`${firstnumber} * ${secondnumber} = ${result}`);
-}else if(operator === "/"){
-    result = firstnumber / secondnumber;
-    alert(`${firstnumber} / ${secondnumber} = ${result}`);
-}else{
-    alert(`Please try again`);
-}
+'use strict'
 
-//second home work average arithmetic
-const firstNumber = +prompt('Please send a first number');
-const secondNumber = +prompt('Please send a second number');
-const treeNumber = +prompt('Please send a tree number');
-const answer = (firstNumber + secondNumber + treeNumber) / 3;
-alert(`(${firstNumber} + ${secondNumber} + ${treeNumber}) / 3 = ${answer}`)
+function* Foo() {
+    console.log('start')
+    yield 1
+    yield 2
+    yield 3
+    console.log('finish')
+}
+  
+const iterator = Foo()
+iterator.next().value // 1
+iterator.next().done // false
+
+function Boo(array) {
+    let index = 0;
+
+    return {
+        next(){
+            return index < array.length ? {value: array[index++], done: false} : {done: true}
+        }
+    }
+}
+let param = [console.log('start'), 1, 2, 3, console.log('finish')]
+const iterator2 = Boo(param)
+iterator2.next().value // 1
+iterator2.next().done // false
