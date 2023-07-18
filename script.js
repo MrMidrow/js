@@ -12,16 +12,18 @@ const iterator = Foo()
 iterator.next().value // 1
 iterator.next().done // false
 
-function Boo(array) {
-    let index = 0;
-
-    return {
-        next(){
-            return index < array.length ? {value: array[index++], done: false} : {done: true}
-        }
+function Boo(arr){
+	let index = 0;
+  return {
+  	next(){
+    	return index < arr.length ? {value: arr[index++], done: false} : {done: true}
     }
+  }
 }
-let param = [console.log('start'), 1, 2, 3, console.log('finish')]
-const iterator2 = Boo(param)
-iterator2.next().value // 1
-iterator2.next().done // false
+
+let param = [1, 2, 3];
+
+let iterator2 = Boo(param);
+
+console.log(iterator2.next().value) // 1
+console.log(iterator2.next().done) // false
