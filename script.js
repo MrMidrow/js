@@ -1,4 +1,4 @@
-
+'use strict'
 const form = document.querySelector('#searchPostId');
 const commentsBtn = document.querySelector('#searchComment');
 const blockComments = document.querySelector('#comment');
@@ -6,11 +6,10 @@ const userId = document.querySelector('.post');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const items = document.querySelectorAll('.items');
     const id = +form.Post.value;
-    if(items.length > 0){
-        items.forEach((e) => e.remove());
-    }
+    const comment_block = document.querySelector('.comment_block');
+    if(comment_block !== null) comment_block.remove();
+
     commentsBtn.removeAttribute('disabled');
     !id ? console.log('Error') : getPost(id);
 })
@@ -26,7 +25,7 @@ async function getPost(id) {
             renderingPost(post);
         }
     }catch(error){
-        console.error(error)
+        console.error(error);
     }
 }
 
@@ -40,10 +39,14 @@ function renderingPost(data) {
 
 commentsBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    let id = userId.getAttribute('data-id');
+
+    const id = userId.getAttribute('data-id');
+    const comment_block = document.createElement('div');
+    comment_block.setAttribute('class', 'comment_block');
+    blockComments.appendChild(comment_block);
     getUserComment(id);
-    blockComments.style.visibility = 'visible'
-    commentsBtn.setAttribute('disabled', 'true')
+    blockComments.style.visibility = 'visible';
+    commentsBtn.setAttribute('disabled', 'true');
 })
 
 async function getUserComment(id){
@@ -51,17 +54,18 @@ async function getUserComment(id){
     try{
         const data = await (await fetch(url)).json();
         data.forEach((e)=>{
-            if(!document.querySelector(`.item-${e.id}`)) createItemComment(e)
+            if(!document.querySelector(`.item-${e.id}`)) createItemComment(e);
         })
     }catch(error){
-        console.log(error)
+        console.log(error);
     }
 }
 
 function createItemComment(e){
+    const comment_block = document.querySelector('.comment_block');
+
     const item = document.createElement('div');
-    item.classList.add(`item-${e.id}`)
-    item.classList.add(`items`)
+    item.classList.add(`item-${e.id}`);
 
     const name = document.createElement('h3');
     name.classList.add('name');
@@ -79,5 +83,5 @@ function createItemComment(e){
     item.appendChild(name);
     item.appendChild(mail);
     item.appendChild(body);
-    blockComments.appendChild(item);
+    comment_block.appendChild(item);
 }
