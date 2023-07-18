@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const id = +form.Post.value;
     const comment_block = document.querySelector('.comment_block');
-    if(comment_block !== null) comment_block.remove();
+    if(comment_block !== null) comment_block.remove(); // changed remove comment block
 
     commentsBtn.removeAttribute('disabled');
     !id ? console.log('Error') : getPost(id);
@@ -17,7 +17,8 @@ form.addEventListener('submit', (e) => {
 async function getPost(id) {
     const url = 'https://jsonplaceholder.typicode.com/posts';
     try{
-        const requestData = await (await fetch(url)).json();
+        const response = await fetch(url);
+        const requestData = await response.json(); //changed requestData = await(await fetch(url)).json;
         const post = requestData[id - 1];
         if(id > requestData.length){
             throw 'Введено не коректное число';
