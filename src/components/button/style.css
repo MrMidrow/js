@@ -1,0 +1,8 @@
+.btnLogIn{
+    margin: 5px;
+    width: 100px;
+    height: 45px;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 10px;
+}
